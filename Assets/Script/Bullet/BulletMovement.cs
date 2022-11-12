@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BulletRush
@@ -27,7 +25,17 @@ namespace BulletRush
 
         private void OnTriggerEnter(Collider collision)
         {
+            if (collision.gameObject.layer == 3 ||collision.gameObject.layer==7)
+            {
+
+                //var damageable = collision.gameObject.GetComponent<Idamagable>();
+                //damageable.TakeDamage();
+                gameObject.SetActive(false);
+
+            }
+            if (collision.gameObject.layer != 8) return;
             gameObject.SetActive(false);
+
         }
     }
 }
