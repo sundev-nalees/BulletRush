@@ -9,7 +9,7 @@ namespace BulletRush
 
         private float horizontal;
         private float vertical;
-        private Vector3 direction;
+        
         
         void Update()
         {
@@ -21,7 +21,7 @@ namespace BulletRush
         {
             horizontal = Input.GetAxisRaw("Horizontal");
             vertical = Input.GetAxisRaw("Vertical");
-            direction = new Vector3(horizontal, 0f, vertical).normalized;
+            Vector3 direction = transform.forward*vertical+transform.right*horizontal;
 
             if (direction.magnitude >= 0.1f)
             {

@@ -7,7 +7,7 @@ namespace BulletRush
     {
         public static BulletPool instance;
         private readonly List<GameObject> pooledBullets = new List<GameObject>();
-        private const int BulletAmount = 40;
+        private const int BulletAmount = 100;
         [SerializeField] private GameObject bulletPrefab;
 
         private void Awake()
