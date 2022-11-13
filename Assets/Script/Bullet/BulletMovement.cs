@@ -13,9 +13,18 @@ namespace BulletRush
             trail = GetComponent<TrailRenderer>();
         }
 
+        private void OnEnable()
+        {
+            Invoke("HideBullet", 2.0f);
+        }
         private void OnDisable()
         {
             trail.Clear();
+            CancelInvoke();
+        }
+        private void HideBullet()
+        {
+            gameObject.SetActive(false);
         }
 
         private void Update()
