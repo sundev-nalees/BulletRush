@@ -37,8 +37,8 @@ namespace BulletRush
             if (collision.gameObject.layer == 3 ||collision.gameObject.layer==7)
             {
 
-                //var damageable = collision.gameObject.GetComponent<Idamagable>();
-                //damageable.TakeDamage();
+                var damageable = collision.gameObject.GetComponent<Idamagable>();
+                damageable.TakeDamage();
                 gameObject.SetActive(false);
 
             }
