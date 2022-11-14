@@ -8,7 +8,7 @@ namespace BulletRush
 
         private int smallHealth;
         [SerializeField] GameObject deathParticlePrefab;
-        private float smallDropChance;
+        
 
         private void OnEnable()
         {
@@ -19,14 +19,15 @@ namespace BulletRush
             --smallHealth;
             if (smallHealth <= 0)
             {
-                smallDropChance = Random.value;
-                DropMoneyOnDeath(smallDropChance);
+                
+                CallDeathParticle();
+                EventManager.Instance.InvokeOnEnemyDeath();
                 gameObject.SetActive(false);
 
             }
         }
 
-        private void OnDisable()
+        private void CallDeathParticle()
         {
             var particle = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
             particle.SetActive(true);

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SmallEnemy
   m_EditorClassIdentifier: 
   type: 1
-  health: 3
+  health: 1
   material: {fileID: 2100000, guid: 046e231316c362549bb145ec1494a677, type: 2}
