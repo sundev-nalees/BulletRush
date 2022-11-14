@@ -13,6 +13,7 @@ namespace BulletRush
         {
             rb = GetComponent<Rigidbody>();
         }
+        
 
         private void FixedUpdate()
         {

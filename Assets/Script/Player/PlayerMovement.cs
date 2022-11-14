@@ -8,6 +8,7 @@ namespace BulletRush
         [SerializeField] private float playerSpeed=0.1f;
         [SerializeField] private float mouseSensitivity=.5f;
         
+        
 
         private float horizontal;
         private float vertical;
@@ -33,6 +34,16 @@ namespace BulletRush
             turn.x += Input.GetAxis("Mouse X") * mouseSensitivity;
             transform.localRotation = Quaternion.Euler(0, turn.x, 0);
 
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<EnemyTrackPlayer>())
+            {
+
+                EventManager.Instance.InvokeOnGameOver();
+                gameObject.SetActive(false);
+            }
         }
     }
 }

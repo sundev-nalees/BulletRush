@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: mediumEnemy
   m_EditorClassIdentifier: 
   type: 2
-  health: 8
+  health: 4
   material: {fileID: 2100000, guid: 1a3fd6b24d16b3140a51a93804cada7d, type: 2}

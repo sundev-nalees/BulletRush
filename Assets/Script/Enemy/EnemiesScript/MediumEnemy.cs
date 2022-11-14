@@ -29,6 +29,8 @@ namespace BulletRush
             {
                 return;
             }
+            CallDeathParticle();
+            EventManager.Instance.InvokeOnEnemyDeath();
             gameObject.SetActive(false);
 
         }
@@ -40,7 +42,7 @@ namespace BulletRush
 
         }
 
-        private void OnDisable()
+        private void CallDeathParticle()
         {
             var particle = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
             particle.SetActive(true);
