@@ -3208,7 +3208,7 @@ MonoBehaviour:
   score: {fileID: 827134193}
   gameOver: {fileID: 1149470321}
   won: {fileID: 1253470045}
-  winScore: 50
+  winScore: 100
   player: {fileID: 1016040885}
   buttonSound: {fileID: 1163456031}
 --- !u!4 &531686227
