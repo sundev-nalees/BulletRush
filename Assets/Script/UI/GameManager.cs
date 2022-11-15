@@ -13,7 +13,7 @@ namespace BulletRush
         [SerializeField] private float winScore;
         [SerializeField] private GameObject player;
 
-        
+        [SerializeField] private AudioSource buttonSound;
         private int currentScore;
         private const string defaultText = "SCORE :";
 
@@ -54,16 +54,19 @@ namespace BulletRush
         public void Quit()
         {
             Application.Quit();
+            buttonSound.Play();
         }
 
         public void Restart()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            buttonSound.Play();
         }
 
         public void MainMenu()
         {
             SceneManager.LoadScene(0);
+            buttonSound.Play();
 
         }
 

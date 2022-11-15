@@ -10,7 +10,7 @@ namespace BulletRush
         private const int BulletAmount = 100;
         [SerializeField] private float bulletSpeed;
         [SerializeField] private GameObject bulletPrefab;
-
+        [SerializeField] private AudioSource shootingSound;
         
 
         private void Start()
@@ -28,6 +28,7 @@ namespace BulletRush
             if (Input.GetMouseButtonDown(0))
             {
                 Fire();
+                shootingSound.Play();
             }
             
         }
