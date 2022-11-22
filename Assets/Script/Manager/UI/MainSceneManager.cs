@@ -4,7 +4,7 @@ using TMPro;
 
 namespace BulletRush
 {
-    public class GameManager : MonoBehaviour
+    public class MainSceneManager : MonoSingletonGeneric<MainSceneManager>
     {
         [SerializeField] private int KillScore;
         [SerializeField] private TextMeshProUGUI score;
@@ -15,7 +15,7 @@ namespace BulletRush
 
         [SerializeField] private AudioSource buttonSound;
         private int currentScore;
-        private const string defaultText = "SCORE :";
+        private const string DefaultText = "SCORE :";
 
 
         private void OnEnable()
@@ -29,6 +29,7 @@ namespace BulletRush
             gameOver.SetActive(false);
             won.SetActive(false);
         }
+
         private void Update()
         {
             if (currentScore == winScore)
@@ -42,7 +43,7 @@ namespace BulletRush
         private void UpdateScore()
         {
             currentScore += KillScore;
-            score.text = defaultText + currentScore;
+            score.text = DefaultText + currentScore;
         }
 
         private void OnGameOver()
@@ -50,7 +51,6 @@ namespace BulletRush
             gameOver.SetActive(true);
         }
         
-
         public void Quit()
         {
             Application.Quit();
@@ -69,7 +69,5 @@ namespace BulletRush
             buttonSound.Play();
 
         }
-
-        
     }
 }

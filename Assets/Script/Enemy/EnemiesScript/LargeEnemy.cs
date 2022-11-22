@@ -1,15 +1,15 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace BulletRush
 {
-    public class LargeEnemy : EnemyManager, Idamagable
+    public class LargeEnemy : EnemyManager,Idamagable
     {
         private int largeHealth;
         private ParticleSystem tParticleSystem;
-
+        private float downScaleAmount = 0.02f;
         [SerializeField] Material material;
         [SerializeField] GameObject deathParticlePrefab;
+        [SerializeField] AudioSource explosion;
 
         private void Awake()
         {
@@ -23,31 +23,18 @@ namespace BulletRush
         }
         public void TakeDamage()
         {
-            DownScale();
-            material.color = Color.Lerp(material.color, new Color(0, 0.5f, 0), 0.008f);
+            DownScale(downScaleAmount);
+            material.color = Color.Lerp(material.color, new Color(0, 0.5f, 0), 0.08f);
             tParticleSystem.Play();
             largeHealth--;
             if (largeHealth > 0)
             {
                 return;
             }
-            CallDeathParticle();
+            CallDeathParticle(deathParticlePrefab);
             EventManager.Instance.InvokeOnEnemyDeath();
+            explosion.Play();
             gameObject.SetActive(false);
-        }
-
-        private void DownScale()
-        {
-            transform.localScale -= Vector3.one * 0.02f;
-            transform.position += Vector3.down * 0.02f;
-
-        }
-
-        private void CallDeathParticle()
-        {
-            var particle = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
-            particle.SetActive(true);
-            Destroy(particle, 1f);
 
         }
     }
