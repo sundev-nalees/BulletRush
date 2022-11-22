@@ -8,6 +8,7 @@ namespace BulletRush
        Small,
        Large
     }
+
     [CreateAssetMenu(fileName ="EnemyData",menuName ="Enemy Data")]
     public class EnemyDataContainer : ScriptableObject
     {

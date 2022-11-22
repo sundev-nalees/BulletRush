@@ -7,6 +7,7 @@ namespace BulletRush
         private int largeHealth;
         private ParticleSystem tParticleSystem;
         private float downScaleAmount = 0.02f;
+
         [SerializeField] Material material;
         [SerializeField] GameObject deathParticlePrefab;
         [SerializeField] AudioSource explosion;
