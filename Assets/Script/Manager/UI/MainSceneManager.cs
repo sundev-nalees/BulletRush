@@ -4,7 +4,7 @@ using TMPro;
 
 namespace BulletRush
 {
-    public class MainSceneManager : MonoSingletonGeneric<MainSceneManager>
+    public class MainSceneManager : MonoBehaviour
     {
         [SerializeField] private int KillScore;
         [SerializeField] private TextMeshProUGUI score;
@@ -12,11 +12,10 @@ namespace BulletRush
         [SerializeField] private GameObject won;
         [SerializeField] private float winScore;
         [SerializeField] private GameObject player;
-
         [SerializeField] private AudioSource buttonSound;
+
         private int currentScore;
         private const string DefaultText = "SCORE :";
-
 
         private void OnEnable()
         {
