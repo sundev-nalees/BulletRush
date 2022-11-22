@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace BulletRush
 {
-    public class MainMenuManager : MonoBehaviour
+    public class StartMenuManager : MonoSingletonGeneric<StartMenuManager>
     {
         [SerializeField] AudioSource soundPlayer;
         

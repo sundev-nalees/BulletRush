@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 6def59f713d48e34999913908355d23b, type: 2}
   deathParticlePrefab: {fileID: 3949063318503610755, guid: 7d040bba1ff17624c9d0b4ec6277ca26, type: 3}
+  explosion: {fileID: 0}
 --- !u!1 &922454870859535246
 GameObject:
   m_ObjectHideFlags: 0

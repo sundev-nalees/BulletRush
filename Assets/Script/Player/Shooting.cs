@@ -15,9 +15,9 @@ namespace BulletRush
 
         private void Start()
         {
-            for(var i = 0; i < BulletAmount; i++)
+            for(int i = 0; i < BulletAmount; i++)
             {
-                var obj = Instantiate(bulletPrefab);
+                GameObject obj = Instantiate(bulletPrefab);
                 obj.SetActive(false);
                 pooledBullets.Add(obj);
             }
@@ -32,9 +32,9 @@ namespace BulletRush
             }
             
         }
-        public void Fire()
+        private void Fire()
         {
-            for(var i = 0; i < pooledBullets.Count; i++)
+            for(int i = 0; i < pooledBullets.Count; i++)
             {
                 if (!pooledBullets[i].activeInHierarchy)
                 {

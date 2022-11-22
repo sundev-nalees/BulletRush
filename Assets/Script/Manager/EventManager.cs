@@ -12,6 +12,7 @@ namespace BulletRush
         {
             OnGameOver?.Invoke();
         }
+
         public void InvokeOnEnemyDeath()
         {
             OnEnemyDeath?.Invoke();

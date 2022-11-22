@@ -1,15 +1,19 @@
 using UnityEngine;
 
-namespace BulletRush
+namespace BulletRush.Bullet
 {
     public class BulletMovement : MonoBehaviour
     {
-        private Rigidbody rb;
+        [SerializeField] private float speed=60f;
+        
+        private const int EnemyLayer= 3;
+        private const int ObstacleLayer = 6;
+        private Rigidbody rigidBody;
         private TrailRenderer trail;
-
+        
         private void Awake()
         {
-            rb = GetComponent<Rigidbody>();
+            rigidBody = GetComponent<Rigidbody>();
             trail = GetComponent<TrailRenderer>();
         }
 
@@ -17,34 +21,32 @@ namespace BulletRush
         {
             Invoke("HideBullet", 2.0f);
         }
-        private void OnDisable()
+
+        private void HideBullet()
         {
             trail.Clear();
             CancelInvoke();
-        }
-        private void HideBullet()
-        {
             gameObject.SetActive(false);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            transform.Translate(transform.forward * (Time.deltaTime * 60f), Space.World);
+            rigidBody.velocity = transform.forward * speed;
         }
 
         private void OnTriggerEnter(Collider collision)
         {
-            if (collision.gameObject.layer == 3 ||collision.gameObject.layer==7)
+            if (collision.gameObject.layer== EnemyLayer)
             {
-
-                var damageable = collision.gameObject.GetComponent<Idamagable>();
+                Idamagable damageable = collision.gameObject.GetComponent<Idamagable>();
                 damageable.TakeDamage();
                 gameObject.SetActive(false);
-
             }
-            if (collision.gameObject.layer != 8) return;
+            else if (collision.gameObject.layer != ObstacleLayer)
+            {
+                return;
+            }
             gameObject.SetActive(false);
-
         }
     }
 }

@@ -5060,3 +5060,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b900387cd8912064caf91d852d126b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 60
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  obstaclesLayer:
+    serializedVersion: 2
+    m_Bits: 64

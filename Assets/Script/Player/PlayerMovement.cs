@@ -8,13 +8,10 @@ namespace BulletRush
         [SerializeField] private float playerSpeed=0.1f;
         [SerializeField] private float mouseSensitivity=.5f;
         
-        
-
         private float horizontal;
         private float vertical;
         private Vector2 turn;
 
-    
         void Update()
         {
             MovementControl();

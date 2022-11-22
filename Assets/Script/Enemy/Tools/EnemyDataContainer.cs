@@ -6,7 +6,6 @@ namespace BulletRush
     {
        None,
        Small,
-       Medium,
        Large
     }
     [CreateAssetMenu(fileName ="EnemyData",menuName ="Enemy Data")]
